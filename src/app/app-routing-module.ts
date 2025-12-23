@@ -4,6 +4,9 @@ import { Landing } from './landing/landing';
 import { Signup } from './signup/signup';
 import { Login } from './login/login';
 import { VerifyEmail } from './verify-email/verify-email';
+import { Home } from './user/home/home';
+import { authGuard } from './shared/guards/auth/auth-guard';
+import { adminGuard } from './shared/guards/admin/admin-guard';
 
 const routes: Routes = [
   {
@@ -21,6 +24,16 @@ const routes: Routes = [
   {
     path: 'verify-email',
     component: VerifyEmail
+  },
+  {
+    path: 'home',
+    component: Home,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('../app/admin/admin-module').then(m => m.AdminModule),
+    canActivate: [adminGuard]
   },
   {
     path: '**',

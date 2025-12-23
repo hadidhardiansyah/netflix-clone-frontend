@@ -23,7 +23,7 @@
   z-index: 1;
 }
 
-/* PulseScreen logo */
+/* Netflix Clone logo */
 .logo {
   position: absolute;
   left: 32px;
@@ -105,6 +105,10 @@
   }
   .mat-mdc-form-field-icon-suffix .mat-icon {
     color: rgba(255,255,255,0.8);
+  }
+  ::ng-deep input.mat-mdc-input-element:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px #000 inset !important; /* Gunakan nilai besar seperti 1000px */
+      -webkit-text-fill-color: white !important;
   }
 }
 

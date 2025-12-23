@@ -6,9 +6,11 @@ import { App } from './app';
 import { Landing } from './landing/landing';
 import { SharedModule } from './shared/shared-module';
 import { Signup } from './signup/signup';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { Login } from './login/login';
 import { VerifyEmail } from './verify-email/verify-email';
+import { Home } from './user/home/home';
+import { authInterceptor } from './shared/interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { VerifyEmail } from './verify-email/verify-email';
     Landing,
     Signup,
     Login,
-    VerifyEmail
+    VerifyEmail,
+    Home
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { VerifyEmail } from './verify-email/verify-email';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient()
+    provideHttpClient(withInterceptors([authInterceptor]))
   ],
   bootstrap: [App]
 })

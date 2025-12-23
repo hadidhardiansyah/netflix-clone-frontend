@@ -13,7 +13,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --text: #ffffff;
   --muted: #b3b3b3;
 
-  --accent: #e50914; /* PulseScreen red */
+  --accent: #e50914; /* Netflix Clone red */
   --accent-contrast: #ffffff;
 
   /* feedback */
@@ -342,7 +342,7 @@ input, button, select, textarea { font: inherit; }
   -webkit-backdrop-filter: blur(8px) !important;
 }
 
-/* PulseScreen-Style Notifications - Modern Design */
+/* Netflix Clone-Style Notifications - Modern Design */
 .mat-mdc-snack-bar-container {
   margin: 24px !important;
   --mdc-snackbar-container-shape: 12px;
