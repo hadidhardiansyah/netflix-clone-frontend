@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-
   private apiUrl = environment.apiUrl + `/auth`;
 
   private currentUserSubject = new BehaviorSubject<any>(null);
@@ -24,8 +23,8 @@ export class AuthService {
       const password = confirmControl.parent.get(passwordControlName)?.value;
       const confirmPassword = confirmControl.value;
 
-      return password === confirmPassword ? null : {passwordMismatch: true};
-    }
+      return password === confirmPassword ? null : { passwordMismatch: true };
+    };
   }
 
   signup(signupData: any) {
@@ -37,10 +36,9 @@ export class AuthService {
   }
 
   login(loginData: any) {
-    return this.http.post(this.apiUrl + '/login', loginData)
-    .pipe(
-      tap(res => this.handleAuthSuccess(res))
-    );
+    return this.http
+      .post(this.apiUrl + '/login', loginData)
+      .pipe(tap((res) => this.handleAuthSuccess(res)));
   }
 
   handleAuthSuccess(authData: any) {
@@ -70,7 +68,7 @@ export class AuthService {
   isAdmin(): boolean {
     const user = this.getCurrentUser();
 
-    return user?.role.toUpperCase() === 'ADMIN'
+    return user?.role.toUpperCase() === 'ADMIN';
   }
 
   redirectBasedOnRole() {
@@ -80,15 +78,18 @@ export class AuthService {
   }
 
   resendVerificationEmail(email: string) {
-    return this.http.post(this.apiUrl + '/resend-verification', {email});
+    return this.http.post(this.apiUrl + '/resend-verification', { email });
   }
 
   forgotPassword(email: string) {
-    return this.http.post(this.apiUrl + '/forgot-password', {email});
+    return this.http.post(this.apiUrl + '/forgot-password', { email });
   }
 
   resetPassword(token: string, newPassword: string) {
-    return this.http.post(this.apiUrl + '/reset-password', {token, newPassword});
+    return this.http.post(this.apiUrl + '/reset-password', {
+      token,
+      newPassword,
+    });
   }
 
   initializeAuth(): Promise<void> {
@@ -111,9 +112,9 @@ export class AuthService {
           this.handleAuthSuccess(null);
 
           resolve();
-        }
-      })
-    })
+        },
+      });
+    });
   }
 
   private fetchCurrentUser() {
@@ -125,5 +126,9 @@ export class AuthService {
 
     this.currentUserSubject.next(null);
     this.router.navigate(['/']);
+  }
+
+  changePassword(changePasswordData: any) {
+    return this.http.post(this.apiUrl + '/change-password', changePasswordData);
   }
 }
