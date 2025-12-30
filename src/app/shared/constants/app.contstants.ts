@@ -52,12 +52,12 @@ export const DIALOG_CONFIG = {
     hasBackdrop: true,
     disableClose: false,
   },
-  VIDEO_FROM: {
+  VIDEO_FORM: {
     width: '95vw',
-    maxWidht: '1400px',
+    maxWidth: '1400px',
     height: 'auto',
     maxHeight: '95vh',
-    panel: 'video-from-dialog',
+    panel: 'video-form-dialog',
     hasBackdrop: true,
     disableClose: false,
   },
