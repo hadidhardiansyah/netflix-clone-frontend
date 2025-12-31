@@ -64,7 +64,7 @@ export class MediaService {
 
     let uuid = value;
 
-    if (value.includes(`/${type}`)) {
+    if (value.includes(`/${type}/`)) {
       uuid = value.substring(value.lastIndexOf('/') + 1);
     }
 
@@ -72,7 +72,7 @@ export class MediaService {
       return this.imageCache.get(uuid)!;
     }
 
-    if (uuid.startWith('blob:') || uuid.startWith('data:')) {
+    if (uuid.startsWith('blob:') || uuid.startsWith('data:')) {
       return uuid;
     }
 
@@ -84,7 +84,7 @@ export class MediaService {
       return null;
     }
 
-    const authenticatedUrl = `${this.apiUrl}/${type}/${uuid}?=token=${encodeURIComponent(token)}`;
+    const authenticatedUrl = `${this.apiUrl}/${type}/${uuid}?token=${encodeURIComponent(token)}`;
 
     if (option?.userCache && type === 'image') {
       this.imageCache.set(uuid, authenticatedUrl);

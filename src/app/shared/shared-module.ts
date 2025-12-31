@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDialog } from './components/confirm-dialog/confirm-dialog';
 import { Header } from './components/header/header';
 import { ChangePasswordDialog } from './components/change-password-dialog/change-password-dialog';
+import { VideoPlayer } from './components/video-player/video-player';
 
 const MATERIAL_MODULES = [
   MatIconModule,
@@ -56,7 +57,8 @@ const MATERIAL_MODULES = [
   declarations: [
     ConfirmDialog,
     Header,
-    ChangePasswordDialog
+    ChangePasswordDialog,
+    VideoPlayer
   ],
   imports: [
     CommonModule,
