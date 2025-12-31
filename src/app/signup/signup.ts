@@ -44,8 +44,6 @@ export class Signup implements OnInit {
 
     if (email) {
       this.signupForm.patchValue({email: email});
-      console.log(email);
-
     }
   }
 

@@ -48,8 +48,6 @@ export class Login implements OnInit {
       password: formData.password
     };
 
-    console.log(authData,'hadid');
-
     this.authService.login(authData).subscribe({
       next: (res) => {
         this.loading = false;
