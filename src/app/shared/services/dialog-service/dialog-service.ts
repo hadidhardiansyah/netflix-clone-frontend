@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { ConfirmDialog } from '../../components/confirm-dialog/confirm-dialog';
 import { ManageVideo } from '../../../admin/dialog/manage-video/manage-video';
 import { VideoPlayer } from '../../components/video-player/video-player';
+import { ManageUser } from '../../../admin/dialog/manage-user/manage-user';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class DialogService {
   openChangePasswordDialog(): MatDialogRef<ChangePasswordDialog> {
     return this.dialog.open(
       ChangePasswordDialog,
-      DIALOG_CONFIG.CHANGE_PASSWORD
+      DIALOG_CONFIG.CHANGE_PASSWORD,
     );
   }
 
@@ -25,7 +26,7 @@ export class DialogService {
     message: string,
     confirmText: string = 'Confirm',
     cancelText: string = 'Cancel',
-    type: 'warning' | 'danger' | 'info' = 'warning'
+    type: 'warning' | 'danger' | 'info' = 'warning',
   ): Observable<boolean> {
     const dialogRef = this.dialog.open(ConfirmDialog, {
       ...DIALOG_CONFIG.CONFIRM,
@@ -43,7 +44,7 @@ export class DialogService {
 
   openVideoFormDialog(
     mode: 'create' | 'edit',
-    video?: any
+    video?: any,
   ): MatDialogRef<ManageVideo> {
     return this.dialog.open(ManageVideo, {
       ...DIALOG_CONFIG.VIDEO_FORM,
@@ -55,6 +56,16 @@ export class DialogService {
     return this.dialog.open(VideoPlayer, {
       data: video,
       ...DIALOG_CONFIG.VIDEO_PLAYER,
+    });
+  }
+
+  openManageUserDialog(
+    mode: 'create' | 'edit',
+    user?: any,
+  ): MatDialogRef<ManageUser> {
+    return this.dialog.open(ManageUser, {
+      ...DIALOG_CONFIG.MANAGE_USER,
+      data: { mode, user },
     });
   }
 }
