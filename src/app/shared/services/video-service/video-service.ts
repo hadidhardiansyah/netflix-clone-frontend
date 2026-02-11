@@ -54,7 +54,7 @@ export class VideoService {
       params = params.set('search', search);
     }
 
-    return this.http.get(this.apiUrlAdmin + '/published', {params});
+    return this.http.get(this.apiUrl + '/published', {params});
   }
 
   getFeaturedVideos() {
