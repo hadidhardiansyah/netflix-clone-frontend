@@ -9,6 +9,7 @@ import { authGuard } from './shared/guards/auth/auth-guard';
 import { adminGuard } from './shared/guards/admin/admin-guard';
 import { ForgotPassword } from './forgot-password/forgot-password';
 import { ResetPassword } from './reset-password/reset-password';
+import { MyFavorites } from './user/my-favorites/my-favorites';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: Home,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'my-favorites',
+    component: MyFavorites,
     canActivate: [authGuard],
   },
   {

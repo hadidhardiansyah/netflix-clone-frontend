@@ -14,6 +14,7 @@ import { authInterceptor } from './shared/interceptors/auth-interceptor';
 import { ForgotPassword } from './forgot-password/forgot-password';
 import { AuthService } from './shared/services/auth-service/auth-service';
 import { ResetPassword } from './reset-password/reset-password';
+import { MyFavorites } from './user/my-favorites/my-favorites';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ResetPassword } from './reset-password/reset-password';
     VerifyEmail,
     Home,
     ForgotPassword,
-    ResetPassword
+    ResetPassword,
+    MyFavorites
   ],
   imports: [
     BrowserModule,

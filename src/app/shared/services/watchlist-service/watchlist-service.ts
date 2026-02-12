@@ -10,7 +10,7 @@ export class WatchlistService {
 
   constructor(private http: HttpClient) {}
 
-  getWatchlist(page: number, size: number, search: string) {
+  getWatchlist(page: number, size: number, search?: string) {
     let params = new HttpParams().set('page', page).set('size', size);
 
     if (search) {
